@@ -16,7 +16,7 @@ Role Variables
 
 | Variable                   | Default | Comments                                                                                                                                                  |
 | :---                       | :---    | :---                                                                                                                                                      |
-| `-    | -      | -                                      |
+| `-`    | -      | -                                      |
 | `-`    | -      | -                                      |
 
 Dependencies
