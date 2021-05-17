@@ -15,4 +15,5 @@ galaxy_info:
     - chrony
     - rsyslog
 dependencies:
-  - ntp
+  - role: ntp
+    vars: ntp_config
