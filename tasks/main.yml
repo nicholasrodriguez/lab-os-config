@@ -1,2 +1,52 @@
 ---
-# tasks file for lab-os-config
+- name: Add epel-release repo
+  yum:
+    name: epel-release
+    state: present
+  tags:
+    - lab_os_config
+
+- name: Install open VM tools
+  yum:
+   name: open-vm-tools
+   state: present
+  when: (ansible_facts['product_name'] == "VMware Virtual Platform") or
+    (ansible_facts['product_name'] == "VMware7,1") or
+    (ansible_facts['product_name'] == "KVM") or
+    (ansible_facts['product_name'] == "VirtualBox")
+  notify:
+    - Reboot host
+  tags:
+    - lab_os_config
+    - vm_tools
+
+- name: Installed required packages
+  yum:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - vim
+      - rsyslog
+      - python3
+  tags:
+    - lab_os_config
+    - packages
+
+# Start Firewalld
+- name: Enabled FirewallD Service (so it starts at boot)
+  systemd:
+    name: firewalld
+    enabled: yes
+    state: started
+  tags:
+    - lab_os_config
+    - firewalld
+
+# Update all the packages
+- name: Update all Packages
+  yum:
+    name: '*'
+    state: latest
+  tags:
+    - lab_os_config
+    - patch

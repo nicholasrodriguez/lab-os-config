@@ -1,2 +1,3 @@
 ---
-# handlers file for lab-os-config
+- name: Reboot host
+  reboot:
