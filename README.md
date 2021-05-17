@@ -16,8 +16,8 @@ Role Variables
 
 | Variable                   | Default | Comments                                                                                                                                                  |
 | :---                       | :---    | :---                                                                                                                                                      |
-| `ntp1`    | -      | First NTP source for chrony configuration.                                      |
-| `ntp2`    | -      | Second NTP source for chrony configuration.                                      |
+| `-    | -      | -                                      |
+| `-`    | -      | -                                      |
 
 Dependencies
 ------------
