@@ -1,2 +1,3 @@
 ---
 # vars file for lab-os-config
+install_gui: False

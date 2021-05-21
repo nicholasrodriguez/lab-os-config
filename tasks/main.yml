@@ -6,6 +6,7 @@
   tags:
     - lab_os_config
 
+# Packages
 - name: Install open VM tools
   yum:
    name: open-vm-tools
@@ -41,6 +42,27 @@
   tags:
     - lab_os_config
     - firewalld
+
+# Setup GUI if required
+- name: Install Server with GUI
+  yum:
+    name: "@Server with GUI"
+    state: present
+  when: install_gui
+  notify:
+    - Reboot host
+  tags:
+    - lab_os_config
+    - gui
+
+- name: Set graphical runlevel
+  command: systemctl set-default graphical.target
+  when: install_gui
+  notify:
+    - Reboot host
+  tags:
+    - lab_os_config
+    - gui
 
 # Update all the packages
 - name: Update all Packages
