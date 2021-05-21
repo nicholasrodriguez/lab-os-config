@@ -15,4 +15,4 @@ galaxy_info:
     - chrony
     - rsyslog
 dependencies:
-  - role: ntp
+  - role: geerlingguy.ntp
