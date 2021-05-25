@@ -1,7 +1,7 @@
 lab_os_config
 =============
 
-This role is used by this repo [https://github.com/nicholasrodriguez/lab] to ensure consistant base OS configuration for an Ansible lab or test environment and will perform the following:
+This role is used by this repo [https://github.com/nicholasrodriguez/lab] to ensure consistent base OS configuration for an Ansible lab or test environment and will perform the following:
 
  - Setup chrony
  - Detect if it is running on a VM and will install open-vm-tools
